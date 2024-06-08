@@ -1490,7 +1490,7 @@ function createRouteListItem(routeNoI, DestinationI) {
             let viewStops = document.createElement("p");
 
             let downArrow = document.createElement("img");
-            downArrow.setAttribute("src", "/down_Arrow.png");
+            downArrow.setAttribute("src", "down_Arrow.png");
             downArrow.setAttribute("class", "downArrow");
 
             viewStops.textContent = "View Stops";
