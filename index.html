@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RT | HYDCBG</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="screen1">
+        <div class="inputContainer">
+            <label for="input1" id="input1Label">From</label>
+            <input type="text" placeholder="Enter Route No." class="longInput" oninput="inputSearchFilter(this)"
+                id="input1">
+            <label for="input2" id="input2Label">To</label>
+            <input type="text" placeholder="Enter Route No." class="longInput" oninput="inputSearchFilter(this)"
+                id="input2">
+        </div>
+
+        <div class="screen1_2">
+            <h2 id="screen1_2heading">Updates</h2>
+            <div class="updateItem noUpdate" id="noUpdate">
+                <h3>No Updates Found</h3>
+                <p>Please Try again Later</p>
+            </div>
+
+            <div class="updateItem noUpdate yesUpdate" id="yesUpdate">
+                <h3>Version 2.1.0</h3>
+                <p>Farechart is updated as per latest information</p>
+                <button>Download Now</button>
+            </div>
+
+            <div class="contactFormContainer">
+                <form action="" id="contactForm">
+                    <div class="alert">Your message sent</div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your name...." />
+                    <label for="emailid">Email ID</label>
+                    <input type="email" id="emailid" placeholder="Your Email....." />
+                    <label for="message">Message</label>
+                    <textarea id="msgContent" cols="30" rows="10" placeholder="Type your Message...."></textarea>
+                    <div class="inputBox">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="moreAppsContainer" id="moreAppsContainer">
+
+                <img src="App_Icon_512.png" alt="">
+
+                <div class="appDescription">
+                    <h4>Theater Gross Calculator</h4>
+                    <p class="appDescriptionPara">A Theater Gross Calculator based on Theater Occupancy</p>
+                    <div class="btnContainer">
+                        <span></span>
+                        <button class="green-btn">Download Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <ul id="suggesionsUL">
+
+        </ul>
+
+        <div class="outputContent">
+
+
+            <div class="routeListItem altRouteListItem" id="mainOutlineALT">
+                <h3>Best Route</h3>
+
+                <div class="graphicsConatinerALT" id="ALT_3points">
+                    <div class="altRouteItem">
+                        <div class="roads">
+                            <div class="road"></div>
+                        </div>
+                        <div class="circles">
+                            <div class="circle startingPointALT"><span>S</span></div>
+                            <div class="circle exchangePointALT"><span>Ex</span></div>
+                            <div class="circle endingPointALT"><span>D</span></div>
+                        </div>
+                    </div>
+
+                    <div class="altRouteText">
+                        <ul>
+                            <li class="routeNumbersALT">
+                                <p id="firstHeadALT">Lalapet to Sec-bad</p>
+                                <p id="firstRouteALT">17DS, 17H, 15H, 242, 281</p>
+                            </li>
+                            <li class="routeNumbersALT">
+                                <p id="secondHeadALT">Blue Sea to Gurudwara</p>
+                                <p class="walkDescALT" id="secondRouteALT">Go to Secunderabad Gurudwara Bus Stop By Walk
+                                </p>
+                            </li>
+                            <li class="routeNumbersALT">
+                                <p id="thirdHeadALT">Sec-bad to Medchal</p>
+                                <p id="thirdRouteALT">229, 25S/229</p>
+                            </li>
+                        </ul>
+                        <p class="confALT" onclick="openHelpDesk()">Need Help?</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="bottomNavBar">
+            <ul>
+                <li onclick="navigate(this)" id="navigateOption1"><img src="from_to.png"
+                        alt="from_to"><span>Routes</span></li>
+                <li onclick="navigate(this)" id="navigateOption2"><img src="busStopIcon.png" alt="from_to"><span>Bus
+                        Stops</span></li>
+                <li onclick="navigate(this)" id="navigateOption3"><img src="from_to.png" alt="from_to"><span>From -
+                        To</span></li>
+                <li onclick="navigate(this)" id="navigateOption4"><img src="moreWhite.png" alt="from_to"><span
+                        id="moreOption">More</span></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <div class="sideScreenContainer">
+        <div class="sideScreen">
+            <h2>HYDERABAD</h2>
+            <p>City Bus Guide</p>
+            <ul>
+                <li onclick="navigate(this)" id="navigateOption1"><img src="ticket.png" alt="from_to"><span>Fare
+                        Chart</span>
+                </li>
+                <li onclick="navigate(this)" id="navigateOption2"><img src="altRouteIcon.png"
+                        alt="from_to"><span>Alternate
+                        Route</span></li>
+                <li onclick="navigate(this)" id="navigateOption4"><img src="updateIcon.png" alt="from_to"><span>Check
+                        for
+                        Updates</span>
+                </li>
+                <li onclick="navigate(this)" id="navigateOption3"><img src="mailWhite.png" alt="from_to"><span>Contact
+                        Us</span></li>
+                <li onclick="navigate(this)" id="navigateOption4"><img src="moreWhite.png" alt="from_to"><span>More
+                        Apps</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="helpDesk">
+        <div class="helpDeskContent">
+            <div class="cancelIconContainer">
+                <p class="cancelIcon" onclick="closeHelpBox()"><img src="cancelIcon.png" alt="Close"></p>
+            </div>
+            <h2 id="helpBoxHeading">Description</h2>
+            <p class="ALTdescriptiveRouteContainer"><span id="ALTdescriptiveRoute">First go to Secunderabad by bus
+                    listed overthere. It drops you at
+                    Secunderabad
+                    Blue Sea Hotel Bus Stop, Now go to Secunderabad Gurudwara Bus Stop By Walk. From there Get on the
+                    buses
+                    listed there and get down at Medchal</span> </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCO075AilYIFsidHxa0ByIum_7WOTjhzQo",
+            authDomain: "tgc-contactfrom.firebaseapp.com",
+            databaseURL: "https://tgc-contactfrom-default-rtdb.firebaseio.com",
+            projectId: "tgc-contactfrom",
+            storageBucket: "tgc-contactfrom.appspot.com",
+            messagingSenderId: "99585897126",
+            appId: "1:99585897126:web:b36d79b372d25f93f2fa67",
+            measurementId: "G-P5RM3N7Z21"
+        };
+
+        let dateObject = new Date();
+        let date = dateObject.getDate();
+        let month = dateObject.getMonth() + 1;
+        let year = dateObject.getFullYear();
+
+        let hours = dateObject.getHours();
+        let minutes = dateObject.getMinutes();
+        let seconds = dateObject.getSeconds();
+
+
+
+        let fullDate = addzero(date) + "/" + addzero(month) + "/" + addzero(year);
+        let time = addzero(hours) + ":" + addzero(minutes) + ":" + addzero(seconds);
+
+        // console.log(fullDate);
+        // console.log(time);
+
+        // initialize firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // reference your database
+        var contactFormDB = firebase.database().ref("contactForm");
+
+        document.getElementById("contactForm").addEventListener("submit", submitForm);
+
+        function submitForm(e) {
+            e.preventDefault();
+
+            var name = getElementVal("name");
+            var emailid = getElementVal("emailid");
+            var msgContent = getElementVal("msgContent");
+
+            saveMessages(name, emailid, msgContent, fullDate, time);
+
+            //   enable alert
+            document.querySelector(".alert").style.display = "block";
+
+            //   remove the alert
+            setTimeout(() => {
+                document.querySelector(".alert").style.display = "none";
+            }, 3000);
+
+            //   reset the form
+            document.getElementById("contactForm").reset();
+        }
+
+        const saveMessages = (name, emailid, msgContent, fullDate, time) => {
+            var newContactForm = contactFormDB.push();
+
+            newContactForm.set({
+                name: name,
+                emailid: emailid,
+                msgContent: msgContent,
+                fullDate: fullDate,
+                time: time,
+            });
+        };
+
+        const getElementVal = (id) => {
+            return document.getElementById(id).value;
+        };
+
+        function addzero(val) {
+            let formatted = 0;
+
+            if (val < 10) {
+                formatted = "0" + val;
+            } else {
+                formatted = val;
+            }
+            return formatted;
+        }
+    </script>
+</body>
+
+</html>

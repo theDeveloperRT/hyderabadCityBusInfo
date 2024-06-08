@@ -1,0 +1,892 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --primaryColor: #151A51;
+    /* --primaryColor: rgb(13, 24, 37); */
+    /* --secondaryColor:rgb(2, 12, 31); */
+    --secondaryColor: #F3F4F8;
+    --listColor: #c7c7ff;
+    --listColor2: #aaaaee;
+    --msgColor: white;
+}
+
+* {
+    font-family: 'Poppins';
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: var(--secondaryColor);
+    /* background-color: rgb(198, 205, 244); */
+}
+
+.bodyContent {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.screen1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition-duration: 0.5s;
+}
+
+.inputContainer {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primaryColor);
+    color: white;
+    height: 130px;
+    justify-content: center;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    transition-duration: 0.5s;
+    /* box-shadow: 0px 0px 10px black; */
+
+    /* display: none; */
+}
+
+.longInput {
+    width: 90%;
+    border-radius: 10px;
+    padding: 2px 5px;
+    text-align: left;
+    border-style: none;
+}
+
+.screen1_2 {
+    width: 100%;
+    display: none;
+}
+
+.screen1_2 h2 {
+    background-color: var(--primaryColor);
+    margin: 0;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0px;
+}
+
+.screen1_2 .updateItem {
+    width: 95%;
+    height: 100px;
+    background-color: var(--listColor);
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.screen1_2 .noUpdate h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.screen1_2 .noUpdate p {
+    margin: 0;
+    font-size: 14px;
+    margin-top: -2px;
+}
+
+.screen1_2 .yesUpdate {
+    height: 115px;
+    justify-content: space-around;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: none;
+}
+
+.screen1_2 .yesUpdate p {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.screen1_2 .yesUpdate button {
+    background-color: rgb(7, 84, 7);
+    color: white;
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 15px;
+    border-bottom: 10px;
+    font-weight: bold;
+}
+
+#suggesionsUL {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: fit-content;
+    max-height: 200px;
+    width: 80%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-top: -20px;
+    background-color: var(--listColor);
+    border-radius: 15px;
+    display: none;
+}
+
+#suggesionsUL li {
+    background-color: var(--listColor);
+    padding: 10px 0px;
+    width: 100%;
+    text-align: center;
+    border-bottom: solid 2px black;
+    margin-left: -40px;
+    font-weight: bold;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+label {
+    width: 92%;
+    font-weight: bold;
+}
+
+input {
+    height: 35px;
+    text-align: center;
+    margin: 5px 0px;
+
+}
+
+#input1Label {
+    margin-top: 30px;
+}
+
+#input2 {
+    display: none;
+}
+
+#input2Label {
+    display: none;
+}
+
+
+.outputContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 70px;
+}
+
+.bottomNavBar {
+    height: 60px;
+    width: 95%;
+    background-color: var(--primaryColor);
+    position: fixed;
+    bottom: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.bottomNavBar ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 95%;
+    margin-left: -40px;
+}
+
+.bottomNavBar li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.bottomNavBar li img {
+    width: 25px;
+}
+
+.bottomNavBar li span {
+    color: white;
+    font-size: 12px;
+}
+
+
+.routeListItem {
+    width: 95%;
+    height: 110px;
+    overflow: hidden;
+    background-color: var(--listColor);
+    border-radius: 10px;
+    transition-duration: 0.5s;
+    margin-top: 10px;
+}
+
+.routeListItem .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 110px;
+    background-color: var(--listColor);
+    /* box-shadow: 0px 0px 20px black; */
+    /* border-bottom: solid 2px gray; */
+}
+
+.routeListItem .header .left {
+    background-color: black;
+    color: white;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-bottom: solid 2px black;
+    /* border-top-left-radius: 10px; */
+    /* border-right: solid 3px white; */
+}
+
+.routeListItem .header .left h2 {
+    margin: 0;
+    padding: 5px;
+}
+
+.routeListItem .header .left .doubleRoute {
+    border-bottom: solid 3px white;
+}
+
+.routeListItem .header .right {
+    color: white;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    border-bottom: solid 2px black;
+}
+
+.routeListItem .header .right h2 {
+    color: black;
+    margin: 0;
+    font-size: 20px;
+
+}
+
+.routeListItem .header .right h2:nth-child(1) {
+    padding-top: 5px;
+}
+
+
+.routeListItem .header .right p {
+    color: #013DC4;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+#downArrowContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-left: 60%;
+
+}
+
+#downArrowContainer p {
+    color: black;
+    font-size: 12px;
+
+}
+
+.downArrow {
+    text-align: right;
+    margin-right: 5px;
+    transition-duration: 0.5s;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.content {
+    width: 100%;
+}
+
+.content ul {
+    list-style-type: none;
+    width: 100%;
+    margin-left: -40px;
+    margin-top: 0px;
+    /* background-color: #013DC4; */
+}
+
+.content ul li {
+    text-align: center;
+    margin-top: 10px;
+    height: 45px;
+    /* background-color: #013DC4; */
+    overflow: hidden;
+}
+
+.content p {
+    margin: -5px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.content h3 {
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.busStopItem {
+    width: 95%;
+    height: fit-content;
+    overflow: hidden;
+    background-color: var(--listColor);
+    border-radius: 10px;
+    transition-duration: 0.5s;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.busStopItem .header p {
+    font-weight: bold;
+    width: 90%;
+    font-size: 14px;
+    margin: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.busStopItem .header {
+    flex-direction: column;
+}
+
+.busStopItem .header ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    margin: 5px auto;
+}
+
+.busStopItem .header ul li {
+    margin: 0px 5px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.busStopItem .header .headTitle {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.busStopItem .header table {
+    width: 95%;
+    margin: auto;
+    /* background-color: #013DC4; */
+    text-align: center;
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.busStopItem .header table th,
+tr,
+td {
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    height: 40px;
+}
+
+.busStopItem .header table th:nth-child(2) {
+    border-right: none;
+}
+
+.sideScreenContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -500px;
+    overflow: hidden;
+}
+
+.sideScreen {
+    width: 85%;
+    height: 100%;
+    background-color: #131e3a;
+    position: absolute;
+    top: 0;
+    right: -500px;
+    z-index: 1;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    transition-duration: 0.5s;
+}
+
+.sideScreen h2 {
+    margin: 0;
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 30px;
+}
+
+.sideScreen p {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    margin-top: -10px;
+}
+
+.sideScreen ul {
+    list-style-type: none;
+    margin: 0;
+    margin-top: 25px;
+}
+
+.sideScreen ul li {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: solid 2px gray;
+    margin: 0;
+    /* background-color: #013DC4; */
+    margin-left: -40px;
+    padding-left: 20px;
+    /* justify-content: center; */
+}
+
+.sideScreen ul li:nth-child(1) {
+    border-top: solid 2px gray;
+}
+
+.sideScreen ul li img {
+    width: 30px;
+}
+
+.sideScreen ul li span {
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.contactFormContainer {
+    width: 95%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    background-color: var(--listColor2);
+    margin-top: 10px;
+    border-radius: 15px;
+    padding-bottom: 10px;
+    display: none;
+}
+
+.contactFormContainer form {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contactFormContainer form label {
+    width: 100%;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.contactFormContainer form label:nth-child(4),
+.contactFormContainer form label:nth-child(6) {
+    margin-top: 0px;
+}
+
+.contactFormContainer form input {
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: solid 2px black;
+    outline: none;
+    background-color: var(--msgColor);
+    margin-top: 0px;
+    text-align: left;
+}
+
+.contactFormContainer form textarea {
+    width: 100%;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: 2px solid black;
+    padding-top: 5px;
+    background-color: var(--msgColor);
+    resize: none;
+    height: 150px;
+    /* background-color: rgb(213, 237, 255); */
+}
+
+.contactFormContainer form button {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background-color: var(--primaryColor);
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.contactFormContainer form .alert {
+    width: 90%;
+    background: rgb(0, 255, 106);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 900;
+    display: none;
+}
+
+.altRouteListItem {
+    background-color: var(--listColor2);
+    height: fit-content;
+    padding-bottom: 10px;
+    display: none;
+}
+
+.graphicsConatinerALT {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--listColor);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.altRouteText {
+    width: 70%;
+    height: 290px;
+    margin: auto;
+    padding: 0;
+}
+
+.altRouteListItem .altRouteItem {
+    width: 15%;
+    /* height: fit-content; */
+    height: 310px;
+    background-color: var(--listColor);
+    margin: auto;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.altRouteText ul {
+    list-style-type: none;
+    width: 100%;
+    padding: 0px;
+}
+
+.altRouteText ul li {
+    width: 90%;
+    overflow: scroll;
+    text-align: center;
+}
+
+.altRouteListItem h3 {
+    margin: 0;
+    padding: 2px 10px;
+    font-size: 16px;
+}
+
+.altRouteListItem .altRouteItem .circles {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-top: -260px;
+
+}
+
+.altRouteListItem .altRouteItem .roads {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-left: 11.5px;
+}
+
+.circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: orange;
+    border: 2px solid black;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.road {
+    height: 250px;
+    width: 25px;
+    background-color: black;
+    margin-top: 0px;
+    margin-top: 20px;
+}
+
+.circle span {
+    font-weight: bold;
+    font-size: 22px;
+    /* color: white; */
+}
+
+.routeNumbersALT {
+    height: 75px;
+    border-radius: 10px;
+    margin-top: 15px;
+    background-color: var(--listColor2);
+    font-weight: bold;
+    background-color: #F5F5F5;
+    overflow: hidden;
+}
+
+.routeNumbersALT p {
+    margin: 0;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.routeNumbersALT p:nth-child(1) {
+    background-color: var(--primaryColor);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    height: 35%;
+}
+
+.routeNumbersALT p:nth-child(2) {
+    height: 65%;
+}
+
+.walkDescALT {
+    font-size: 12px;
+}
+
+.confALT {
+    color: #013DC4;
+    font-weight: bold;
+    text-decoration: underline;
+    /* background-color: #013DC4; */
+    width: 98%;
+    text-align: right;
+    margin-top: -10px;
+    font-size: 14px;
+
+}
+
+.stopNamesALT {
+    font-weight: bold;
+    padding: 5px 10px;
+    border: dashed 2px black;
+    border-radius: 10px;
+}
+
+.exchangePointALT {
+    background-color: rgb(122, 122, 255);
+}
+
+.endingPointALT {
+    background-color: rgb(29, 185, 29);
+}
+
+.helpDesk {
+    background-color: rgba(2, 8, 42, 0.7);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    display: none;
+}
+
+.helpDeskContent {
+    width: 85%;
+    min-height: 150px;
+    max-height: fit-content;
+    background-color: var(--listColor2);
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px black;
+}
+
+.helpDeskContent h2 {
+    margin: 0;
+    text-align: center;
+    margin-top: -25px;
+    border-bottom: solid 2px black;
+    background-color: var(--primaryColor);
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cancelIconContainer {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    background-color: var(--primaryColor);
+    display: flex;
+    justify-content: end;
+}
+
+.cancelIcon {
+    color: white;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    margin: 0;
+    width: fit-content;
+}
+
+.cancelIcon img {
+    width: 30px;
+}
+
+.ALTdescriptiveRouteContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+    /* background-color: #013DC4; */
+    height: 130px;
+}
+
+.moreAppsContainer {
+    background-color: var(--listColor);
+    width: 94%;
+    border-radius: 15px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    padding: 5px;
+
+    display: none;
+}
+
+.moreAppsContainer img {
+    width: 100px;
+    border-radius: 15px;
+}
+
+.appDescription {
+    margin-left: 5px;
+    padding: 0;
+    /* background-color: #013DC4; */
+    width: 70%;
+    font-weight: bold;
+}
+
+.appDescription h4 {
+    margin: 0;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+}
+
+.appDescriptionPara {
+    font-size: 12px;
+    font-weight: lighter;
+    margin: 0;
+    text-align: center;
+}
+
+.green-btn {
+    border: none;
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+}
+
+.btnContainer {
+    width: 100%;
+    /* background-color: #013DC4; */
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Alternate Hiding Handles */
+
+#mainOutlineALT {
+    /* display: none; */
+}
+
+#ALT_3points {
+    /* display: none; */
+}
