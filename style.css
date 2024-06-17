@@ -597,7 +597,7 @@ td {
     background-color: var(--listColor2);
     height: fit-content;
     padding-bottom: 10px;
-    display: none;
+    /* display: none; */
 }
 
 .graphicsConatinerALT {
@@ -753,6 +753,24 @@ td {
     background-color: rgb(29, 185, 29);
 }
 
+.graphicsConatinerALT4Points {
+    height: 400px;
+
+}
+
+.graphicsConatinerALT4Points .road {
+    height: 300px;
+    margin-top: 0px;
+}
+
+#ALT_4pointsCircles {
+    margin-top: -340px;
+}
+
+.graphicsConatinerALT4Points .altRouteText {
+    height: 400px;
+}
+
 .helpDesk {
     background-color: rgba(2, 8, 42, 0.7);
     width: 100%;
@@ -773,8 +791,14 @@ td {
     min-height: 150px;
     max-height: fit-content;
     background-color: var(--listColor2);
+    background-color: white;
     border-radius: 15px;
     box-shadow: 0px 0px 5px black;
+    font-weight: bold;
+}
+
+.helpDeskContent p {
+    font-size: 18px;
 }
 
 .helpDeskContent h2 {
@@ -786,6 +810,7 @@ td {
     color: white;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    font-size: 28px;
 }
 
 .cancelIconContainer {
@@ -884,9 +909,63 @@ td {
 /* Alternate Hiding Handles */
 
 #mainOutlineALT {
-    /* display: none; */
+    display: none;
 }
 
 #ALT_3points {
     /* display: none; */
+}
+
+#ALT_4points {
+    display: none;
+}
+
+#otherRouteOutlineALT {
+    display: none;
+}
+
+#OR_ALT_3points {
+    display: none;
+}
+
+#OR_ALT_4points {
+    /* display: none; */
+}
+
+
+.detailedRouteScreen {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+.detailedRouteScreen h1 {
+    height: 100px;
+    background-color: var(--primaryColor);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    font-size: 28px;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.detailedRouteScreen h1 p {
+    padding: 0;
+    margin: 0;
+}
+
+.detailedRouteScreen h1 p:nth-child(1) {
+    background-color: #131e3a;
 }
