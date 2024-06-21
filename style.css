@@ -278,6 +278,9 @@ input {
 
 .routeListItem .header .left .doubleRoute {
     border-bottom: solid 3px white;
+    min-width: 50%;
+    max-width: fit-content;
+    text-align: center;
 }
 
 .routeListItem .header .right {
