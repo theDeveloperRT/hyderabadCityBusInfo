@@ -110,8 +110,8 @@ let secRoutes_UP = [
   "29B/272I",
   "29S",
   "30",
-  "38AT",
   "38EX",
+  "38X",
   "38T",
   "40",
   "44X",
@@ -125,8 +125,10 @@ let secRoutes_UP = [
   "49M/92A",
   "49MT",
   "50B",
+  "86A",
   "86C",
   "86J",
+  "86K",
   "90B",
   "90DL",
   "90L/251",
@@ -193,7 +195,6 @@ let secRoutes_UP = [
   "290UF",
   "290U/205",
   "290U/463",
-  "300/251",
   "498",
   "498U",
   "568",
@@ -204,6 +205,7 @@ let secRoutes_DN = [
   "16D/24B",
   "24B/16D",
   "38EX",
+  "38X",
   "92A/5K",
   "92A/49M",
   "178G/8A",
@@ -262,7 +264,6 @@ let ECILX_DN = [
   "24E",
   "24J",
   "29B/17H",
-  "38AT",
   "47L/16A",
   "47L/16C",
   "49/250",
@@ -323,6 +324,7 @@ let AFZ_DN = [
   "16A/20",
   "37/8",
   "49A",
+  "86A",
   "116GA/65",
   "123/65M",
   "242/3K",
@@ -435,7 +437,6 @@ let AMBD_DN = [
 ]
 
 let MDCL_UP = [
-  "1Z/229",
   "229/5K",
   "229/18C",
   "229/49M",
@@ -450,6 +451,7 @@ let MDCL_UP = [
 let MDCL_DN = [
   "1/25S/229",
   "1D/229",
+  "1Z/229",
   "5K/229",
   "18C/229",
   "25S/229",
@@ -501,7 +503,7 @@ let PTCR_DN = [
   "280/219",
 ]
 
-let ARGR_DN = ["1Z", "1Z/229", "3K/95", "3KN/95", "5K/92A", "7Z", "49M/92A"];
+let ARGR_DN = ["1Z", "3K/95", "3KN/95", "5K/92A", "7Z", "49M/92A"];
 
 let CBS_UP = [
   "9F",
@@ -729,7 +731,19 @@ let DetailedRoutesUP = [
     getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
     getStops(KSR_SHMB, "KOTI MEDICAL COLLEGE", "AFZALGUNJ")
   ),
-  // ["1B"].concat(SC_RTC_UP),
+  ["1/25S"].concat(
+    getStops(SHMB_KSR, "AFZALGUNJ", "CITY BUS STATION"),
+    getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD"),
+    getStops(MNBD_SRPT, 'SECUNDERABAD', 'LOTHKUNTA'),
+    getStops(GTKS_KPHB, 'ALWAL', 'SUCHITRA')
+  ),
+  ["1/25S/229"].concat(
+    getStops(SHMB_KSR, "AFZALGUNJ", "CITY BUS STATION"),
+    getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD"),
+    getStops(MNBD_SRPT, 'SECUNDERABAD', 'LOTHKUNTA'),
+    getStops(GTKS_KPHB, 'ALWAL', 'SUCHITRA'),
+    getStops(MHRM_MDCL, 'JEEDIMETLA VILLAGE', 'MEDCHAL')
+  ),
   ["1C"].concat(
     getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
     getStops(KSR_SHMB, "KOTI MEDICAL COLLEGE", "CITY BUS STATION")
@@ -737,6 +751,12 @@ let DetailedRoutesUP = [
   ["1D"].concat(
     getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
     getStops(LGRH_KTGD, "CHADERGHAT", "DILSHUKNAGAR")
+  ),
+  ["1D/229"].concat(
+    getStops(KTGD_LGRH, 'DILSHUKNAGAR', 'CHADERGHAT'),
+    getStops(SKPL_SECB, 'KOTI WOMENS COLLEGE', 'SECUNDERABAD'),
+    getStops(IBP_DNGL, 'SECUNDERABAD', 'BOWENPALLY X ROADS'),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
   ),
   ["1D/299"].concat(
     getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
@@ -746,13 +766,12 @@ let DetailedRoutesUP = [
     getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
     getStops(LGRH_KTGD, "CHADERGHAT", "LB NAGAR X ROADS")
   ),
-  // ["1HD"].concat(SC_KOTI_UP),
-  // ["1J"].concat(SC_AFZ_1_UP),
-  // ["1K"].concat(SC_AFZ_1_UP),
-  // ["1L"].concat(SC_KOTI_UP),
-  // ["1MD"].concat(SC_KOTI_UP),
-  // ["1P"].concat(SC_AFZ_1_UP),
-  // ["1V"].concat(SC_KOTI_UP),
+  ["1V"].concat(
+    getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
+    getStops(LGRH_KTGD, "CHADERGHAT", "PANAMA"),
+    getStops(TailsUP, 'VANASTHALIPURAM', 'GANESH TEMPLE (VANASTHALIPURAM)'),
+    getStops(TailsUP, 'RED TANK', 'NGOs COLONY')
+  ),
   ["1X"].concat(
     getStops(SECB_SKPL, "SECUNDERABAD", "KACHEGUDA X ROADS"),
     getStops(SHMB_KSR, "KACHEGUDA TOURIST", "KACHEGUDA STATION")
@@ -761,17 +780,39 @@ let DetailedRoutesUP = [
     getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
     getStops(KSR_SHMB, "KOTI MEDICAL COLLEGE", "ARAMGHAR")
   ),
+  ["1Z/229"].concat(
+    getStops(SHMB_KSR, "ARAMGHAR", "CITY BUS STATION"),
+    getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD"),
+    getStops(IBP_DNGL, 'SECUNDERABAD', 'BOWENPALLY X ROADS'),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
+  ),
   ["1Z/251"].concat(
     getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
-    getStops(KSR_SHMB, "KOTI MEDICAL COLLEGE", "SHAMSHABAD")
+    getStops(KSR_SHMB, "KOTI MEDICAL COLLEGE", "SHAMSHABAD"),
   ),
 
-  // ["2"].concat(SC_AFZ_2_UP),
+  // 2 SERIES
+  ["2"].concat(
+    getStops(SECB_SKPL, 'SECUNDERABAD', 'RTC X ROADS'),
+    SHD[167], SHD[1075],
+    getStops(KSR_SHMB, 'NALLAKUNTA', 'KACHEGUDA STATION'),
+    SHD[708],
+    getStops(GTKS_PTCR, 'CHADERGHAT X ROADS', 'AFZALGUNJ')
+  ),
+  ["2/25S"].concat(
+    getStops(PTCR_GTKS, 'AFZALGUNJ', 'CHADERGHAT X ROADS'),
+    SHD[708],
+    getStops(SHMB_KSR, 'KACHEGUDA STATION', 'SHANKARMUTT'),
+    SHD[1075], SHD[167],
+    getStops(SKPL_SECB, 'RTC X ROADS', 'SECUNDERABAD'),
+    getStops(MNBD_SRPT, 'SECUNDERABAD', 'LOTHKUNTA'),
+    getStops(GTKS_KPHB, 'ALWAL', 'SUCHITRA')
+  ),
 
   // 3 SERIES
   ["3"].concat(
     getStops(SHMB_KSR, "AFZALGUNJ", "ZTS X ROADS"),
-    "MOULA ALI KAMAN",
+    SHD[526],
     getStops(SHMB_KSR, "SP NAGAR", "KUSHAIGUDA")
   ),
   ["3C"].concat(
@@ -810,12 +851,26 @@ let DetailedRoutesUP = [
     getStops(SHMB_KSR, "AFZALGUNJ", "RAM THEATER - LALAPET"),
     SHD[780]
   ),
+  ["3T"].concat(
+    getStops(SHMB_KSR, "AFZALGUNJ", "TARNAKA"),
+  ),
 
   // 5 SERIES
   ["5K"].concat(getStops(SRPT_MNBD, "SECUNDERABAD", "MEHDIPATNAM")),
+  ["5K/16A"].concat(
+    getStops(MNBD_SRPT, "MEHDIPATNAM", "SANGEETH"),
+    SHD[898],
+    getStops(DNGL_IBP, "ALUGADDA BHAVI", "METTUGUDA"),
+    getStops(GWRL_HCLX, "NEW BRIDGE", "ECIL X ROADS")
+  ),
   ["5K/92A"].concat(
     getStops(SRPT_MNBD, "SECUNDERABAD", "MEHDIPATNAM"),
     getStops(SKPL_SECB, "RETHIBOWLI", "ARAMGHAR")
+  ),
+  ["5K/229"].concat(
+    getStops(MNBD_SRPT, 'MEHDIPATNAM', 'PATNY CENTER'),
+    getStops(IBP_DNGL, "PARADISE", "BOWENPALLY X ROADS"),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
   ),
 
   // 8 SERIES
@@ -880,10 +935,18 @@ let DetailedRoutesUP = [
     getStops(IBP_DNGL, "METTUGUDA", "CHILKALGUDA X ROADS"),
     getStops(SRPT_MNBD, "SECUNDERABAD", "MEHDIPATNAM")
   ),
+  ["16H"].concat(
+    SHD[898],
+    SHD[23],
+    SHD[622],
+    getStops(GWRL_HCLX, "NEW BRIDGE", 'ANANDH BAGH X ROADS'),
+    "ANANDH BAGH", SHD[264], "TIRUMALA NAGAR",
+    getStops(SHMB_KSR, 'ZTS X ROADS', 'ECIL X ROADS')
+  ),
   ["16A/219"].concat(
     getStops(HCLX_GWRL, "ECIL X ROADS", "NEW BRIDGE"),
     getStops(IBP_DNGL, "METTUGUDA", "BALANAGAR"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(GTKS_PTCR, "KUKATPALLY GOVT COLLEGE", "PATANCHERUVU")
   ),
 
@@ -893,6 +956,11 @@ let DetailedRoutesUP = [
     getStops(DNGL_IBP, "ALUGADDA BHAVI", "TARNAKA"),
     getStops(SHMB_KSR, "WHITE HOUSE", "KUSHAIGUDA")
   ),
+  ["17HN"].concat(
+    SHD[898],
+    getStops(LGPL_CRPL, 'ALUGADDA BHAVI', 'NOMA'),
+    getStops(SHMB_KSR, 'HB COLONY', 'KUSHAIGUDA')
+  ),
   ["17H/29B"].concat(
     getStops(KSR_SHMB, "ECIL X ROADS", "TARNAKA"),
     getStops(IBP_DNGL, "RAILWAY DEGREE COLLEGE", "JEEDIMETLA")
@@ -900,13 +968,13 @@ let DetailedRoutesUP = [
   ["17/219"].concat(
     getStops(KSR_SHMB, "ECIL X ROADS", "TARNAKA"),
     getStops(IBP_DNGL, "RAILWAY DEGREE COLLEGE", "BALANAGAR"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(GTKS_PTCR, "KUKATPALLY GOVT COLLEGE", "PATANCHERUVU")
   ),
   ["17H/219"].concat(
     getStops(KSR_SHMB, "ECIL X ROADS", "TARNAKA"),
     getStops(IBP_DNGL, "RAILWAY DEGREE COLLEGE", "BALANAGAR"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(GTKS_PTCR, "KUKATPALLY GOVT COLLEGE", "PATANCHERUVU")
   ),
 
@@ -914,6 +982,17 @@ let DetailedRoutesUP = [
     getStops(HCLX_GWRL, "SECUNDERABAD", "SITAFALMANDI X ROADS"),
     SHD[641],
     getStops(SHMB_KSR, "TARNAKA", "KUSHAIGUDA")
+  ),
+
+  // 25 SERIES
+  ["25S"].concat(
+    getStops(MNBD_SRPT, 'SECUNDERABAD', 'LOTHKUNTA'),
+    getStops(GTKS_KPHB, 'ALWAL', 'SUCHITRA')
+  ),
+  ["25S/229"].concat(
+    getStops(MNBD_SRPT, 'SECUNDERABAD', 'LOTHKUNTA'),
+    getStops(GTKS_KPHB, 'ALWAL', 'SUCHITRA'),
+    getStops(MHRM_MDCL, 'JEEDIMETLA VILLAGE', 'MEDCHAL')
   ),
 
   // 29 SERIES
@@ -924,11 +1003,54 @@ let DetailedRoutesUP = [
     getStops(SHMB_KSR, "WHITE HOUSE", "ECIL X ROADS")
   ),
 
+  // 38 SERIES
+  ["38EX"].concat(
+    getStops(GWRL_HCLX, 'SECUNDERABAD', 'SHENOY'),
+    "ADDAGUTTA", "ADDAGUTTA", "NANDANA NAGAR",
+    getStops(HCLX_GWRL, 'TUKARAM GATE', 'SECUNDERABAD')
+  ),
+  ["38X"].concat(
+    getStops(GWRL_HCLX, 'SECUNDERABAD', 'TUKARAM GATE'),
+    "NANDANA NAGAR", "ADDAGUTTA", "ADDAGUTTA",
+    getStops(HCLX_GWRL, 'SHENOY', 'SECUNDERABAD')
+  ),
+  ["38T"].concat(
+    getStops(GWRL_HCLX, 'SECUNDERABAD', 'SHENOY'),
+    "ADDAGUTTA", "ADDAGUTTA", "NANDANA NAGAR",
+    SHD[1027]
+  ),
+
+  // 40 SERIES
+  ["40"].concat(
+    getStops(MDCL_MHRM, 'SECUNDERABAD', 'BATA'),
+    getStops(DRFM_RMNG, 'BIBLE HOUSE', 'NATIONAL DARBAR'),
+    "KING KOTI", SHD[3], SHD[110], SHD[506]
+  ),
+
+  // 86 SERIES
+  ["86A"].concat(
+    getStops(HCLX_GWRL, 'SECUNDERABAD', 'RAM NAGAR GUNDU'),
+    getStops(RMNG_DRFM, 'RAM NAGAR - E SEVA', 'YMCA'),
+    getStops(KSR_SHMB, 'KACHEGUDA X ROADS', 'AFZALGUNJ')
+  ),
+  ["86C"].concat(
+    getStops(HCLX_GWRL, 'SECUNDERABAD', 'RAM NAGAR GUNDU'),
+    getStops(RMNG_DRFM, 'RAM NAGAR - E SEVA', 'YMCA'),
+    getStops(KSR_SHMB, 'KACHEGUDA X ROADS', 'CITY BUS STATION')
+  ),
+  ["86K"].concat(
+    getStops(HCLX_GWRL, 'SECUNDERABAD', 'RAM NAGAR GUNDU'),
+    getStops(RMNG_DRFM, 'RAM NAGAR - E SEVA', 'YMCA'),
+    getStops(KSR_SHMB, 'KACHEGUDA X ROADS', 'KOTI WOMENS COLLEGE'),
+    SHD[506]
+  ),
+
+
   // 90 SERIES
   ["90L"].concat(
     getStops(IBP_DNGL, "LB NAGAR X ROADS", "SECUNDERABAD"),
-    "PARADE GROUNDS",
-    "JBS"
+    SHD[754],
+    SHD[433]
   ),
   ["90LK"].concat(
     getStops(IBP_DNGL, "LB NAGAR X ROADS", "TARNAKA"),
@@ -938,6 +1060,15 @@ let DetailedRoutesUP = [
     SHD[898],
     getStops(DNGL_IBP, "ALUGADDA BHAVI", "LB NAGAR X ROADS"),
     getStops(KTGD_LGRH, "LB NAGAR", "DILSHUKNAGAR")
+  ),
+  ["90L/229"].concat(
+    getStops(IBP_DNGL, "LB NAGAR X ROADS", "BOWENPALLY X ROADS"),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
+  ),
+  ["90L/251"].concat(
+    getStops(DNGL_IBP, 'SECUNDERABAD', 'LB NAGAR X ROADS'),
+    getStops(SECB_SKPL, 'SAGAR RING ROAD', 'ARAMGHAR'),
+    getStops(KSR_SHMB, 'BUDVEL', 'SHAMSHABAD')
   ),
 
   // 92 SERIES
@@ -950,27 +1081,82 @@ let DetailedRoutesUP = [
   // 219 SERIES
   ["219"].concat(
     getStops(IBP_DNGL, "SECUNDERABAD", "BALANAGAR"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(GTKS_PTCR, "KUKATPALLY GOVT COLLEGE", "PATANCHERUVU")
+  ),
+  ["219/16A"].concat(
+    getStops(PTCR_GTKS, "PATANCHERUVU", "KUKATPALLY"),
+    SHD[1087],
+    getStops(DNGL_IBP, "BALANAGAR", "SECUNDERABAD"),
+    getStops(DNGL_IBP, "ALUGADDA BHAVI", "METTUGUDA"),
+    getStops(GWRL_HCLX, "NEW BRIDGE", "ECIL X ROADS")
   ),
   ["219/17"].concat(
     getStops(PTCR_GTKS, "PATANCHERUVU", "KUKATPALLY"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(DNGL_IBP, "BALANAGAR", "SECUNDERABAD"),
     getStops(DNGL_IBP, "ALUGADDA BHAVI", "TARNAKA"),
     getStops(SHMB_KSR, "WHITE HOUSE", "ECIL X ROADS")
   ),
   ["219/17H"].concat(
     getStops(PTCR_GTKS, "PATANCHERUVU", "KUKATPALLY"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(DNGL_IBP, "BALANAGAR", "SECUNDERABAD"),
     getStops(DNGL_IBP, "ALUGADDA BHAVI", "TARNAKA"),
     getStops(SHMB_KSR, "WHITE HOUSE", "ECIL X ROADS")
   ),
+  ["219/229"].concat(getStops(PTCR_GTKS, 'PATANCHERUVU', 'KUKATPALLY'), SHD[1087], getStops(DNGL_IBP, 'BALANAGAR', 'BOWENPALLY X ROADS'), getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')),
+  ["219/250"].concat(
+    getStops(PTCR_GTKS, 'PATANCHERUVU', 'KUKATPALLY'),
+    SHD[1087],
+    getStops(DNGL_IBP, 'BALANAGAR', 'PATNY'),
+    SHD[898],
+    getStops(LGPL_CRPL, 'ALUGADDA BHAVI', 'ASHOK NAGAR - NFC'),
+    getStops(HCLX_GWRL, 'HCL X ROADS', 'ECIL X ROADS')
+  ),
   ["219/272G"].concat(
     getStops(PTCR_GTKS, "PATANCHERUVU", "KUKATPALLY"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(IBP_DNGL, "BALANAGAR", "GANDIMAISAMMA")
+  ),
+
+  // 229 SERIES
+  ["229"].concat(
+    getStops(IBP_DNGL, 'SECUNDERABAD', 'BOWENPALLY X ROADS'),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
+  ),
+  ["229/5K"].concat(
+    getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'),
+    getStops(DNGL_IBP, 'BOWENPALLY X ROADS', 'PATNY'),
+    getStops(SRPT_MNBD, "BATA", "MEHDIPATNAM"),
+  ),
+  ["229/90L"].concat(getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'), getStops(DNGL_IBP, 'BOWENPALLY X ROADS', 'LB NAGAR X ROADS')
+  ),
+  ["229/219"].concat(getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'), getStops(IBP_DNGL, 'BOWENPALLY X ROADS', 'BALANAGAR'), SHD[1087], getStops(GTKS_PTCR, 'KUKATPALLY GOVT COLLEGE', 'PATANCHERUVU')),
+  ["229/279"].concat(getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'), getStops(DNGL_IBP, 'BOWENPALLY X ROADS', 'IBRAHIMPATNAM')
+  ),
+  ["229/290"].concat(
+    getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'),
+    getStops(DNGL_IBP, "BOWENPALLY X ROADS", "KAMINENI HOSPITALS"),
+    getStops(LGRH_KTGD, "LB NAGAR X ROADS", "PANAMA"),
+    getStops(TailsUP, 'VANASTHALIPURAM', 'SUBHADRA NAGAR'),
+    SHD[369],
+    getStops(LGRH_KTGD, 'BHAGYA LATHA', 'HAYATHNAGAR')
+  ),
+  ["229/290U"].concat(getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'), getStops(DNGL_IBP, 'BOWENPALLY X ROADS', 'KAMINENI HOSPITALS'), getStops(LGRH_KTGD, 'LB NAGAR X ROADS', 'HAYATHNAGAR')
+  ),
+
+  // 250 SERIES
+  ["250"].concat(SHD[898],
+    getStops(LGPL_CRPL, 'ALUGADDA BHAVI', 'ASHOK NAGAR - NFC'),
+    getStops(HCLX_GWRL, 'HCL X ROADS', 'ECIL X ROADS')
+  ),
+  ["250/219"].concat(
+    getStops(GWRL_HCLX, 'ECIL X ROADS', 'HCL X ROADS'),
+    getStops(CRPL_LGPL, 'ASHOK NAGAR - NFC', 'SECUNDERABAD'),
+    getStops(IBP_DNGL, 'PATNY', 'BALANAGAR'),
+    SHD[1087],
+    getStops(GTKS_PTCR, 'KUKATPALLY GOVT COLLEGE', 'PATANCHERUVU')
   ),
 
   // 251 SERIES
@@ -988,7 +1174,7 @@ let DetailedRoutesUP = [
   ["272G/29B"].concat(getStops(IBP_DNGL, "SECUNDERABAD", "GANDIMAISAMMA")),
   ["272G/219"].concat(
     getStops(DNGL_IBP, "GANDIMAISAMMA", "BALANAGAR"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(GTKS_PTCR, "KUKATPALLY GOVT COLLEGE", "PATANCHERUVU")
   ),
 
@@ -1005,15 +1191,41 @@ let DetailedRoutesUP = [
     SHD[898],
     getStops(DNGL_IBP, "ALUGADDA BHAVI", "IBRAHIMPATNAM")
   ),
+  ["279/229"].concat(
+    getStops(IBP_DNGL, "IBRAHIMPATNAM", "BOWENPALLY X ROADS"),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
+  ),
   ["279U"].concat(getStops(IBP_DNGL, "IBRAHIMPATNAM", "UPPAL RING ROAD")),
 
   // 290 SERIES
+  ["290"].concat(
+    SHD[448],
+    SHD[754],
+    SHD[898],
+    getStops(DNGL_IBP, "ALUGADDA BHAVI", "KAMINENI HOSPITALS"),
+    getStops(LGRH_KTGD, "LB NAGAR X ROADS", "PANAMA"),
+    getStops(TailsUP, 'VANASTHALIPURAM', 'SUBHADRA NAGAR'),
+    SHD[369],
+    getStops(LGRH_KTGD, 'BHAGYA LATHA', 'HAYATHNAGAR')
+  ),
+  ["290/229"].concat(
+    getStops(KTGD_LGRH, "HAYATHNAGAR", "BHAGYA LATHA"),
+    getStops(TailsDOWN, 'SHANTHI NAGAR - VANASTHALIPURAM', 'VANASTHALIPURAM'),
+    getStops(KTGD_LGRH, 'PANAMA', 'LB NAGAR X ROADS'),
+    getStops(IBP_DNGL, "KAMINENI HOSPITALS", "BOWENPALLY X ROADS"),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
+  ),
   ["290U"].concat(
     SHD[448],
     SHD[754],
     SHD[898],
     getStops(DNGL_IBP, "ALUGADDA BHAVI", "KAMINENI HOSPITALS"),
     getStops(LGRH_KTGD, "LB NAGAR X ROADS", "HAYATHNAGAR")
+  ),
+  ["290U/229"].concat(
+    getStops(KTGD_LGRH, 'HAYATHNAGAR', 'LB NAGAR X ROADS'),
+    getStops(IBP_DNGL, "KAMINENI HOSPITALS", "BOWENPALLY X ROADS"),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
   ),
 
   // 299 SERIES
@@ -1025,6 +1237,11 @@ let DetailedRoutesUP = [
     "MEHDIPATNAM",
     getStops(SKPL_SECB, "RETHIBOWLI", "SAGAR RING ROAD"),
     getStops(IBP_DNGL, "LB NAGAR X ROADS", "UPPAL RING ROAD")
+  ),
+  ["300/251"].concat(
+    getStops(DNGL_IBP, 'UPPAL RING ROAD', 'LB NAGAR X ROADS'),
+    getStops(SECB_SKPL, 'SAGAR RING ROAD', 'ARAMGHAR'),
+    getStops(KSR_SHMB, 'BUDVEL', 'SHAMSHABAD')
   ),
   ["300L"].concat(
     "MEHDIPATNAM",
@@ -1038,6 +1255,19 @@ let DetailedRoutesDOWN = [
     getStops(SHMB_KSR, "AFZALGUNJ", "CITY BUS STATION"),
     getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD")
   ),
+  ["1/25S"].concat(
+    getStops(KPHB_GTKS, 'SUCHITRA', 'ALWAL'),
+    getStops(SRPT_MNBD, 'LOTHKUNTA', 'PATNY'),
+    getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
+    getStops(KSR_SHMB, "KOTI MEDICAL COLLEGE", "AFZALGUNJ")
+  ),
+  ["1/25S/229"].concat(
+    getStops(MDCL_MHRM, 'MEDCHAL', 'JEEDIMETLA VILLAGE'),
+    getStops(KPHB_GTKS, 'SUCHITRA', 'ALWAL'),
+    getStops(SRPT_MNBD, 'LOTHKUNTA', 'PATNY'),
+    getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
+    getStops(KSR_SHMB, "KOTI MEDICAL COLLEGE", "AFZALGUNJ")
+  ),
   // ["1B"].concat(SC_RTC_DN),
   ["1C"].concat(
     "CITY BUS STATION",
@@ -1047,6 +1277,12 @@ let DetailedRoutesDOWN = [
     getStops(KTGD_LGRH, "DILSHUKNAGAR", "CHADERGHAT"),
     getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD")
   ),
+  ["1D/229"].concat(
+    getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'),
+    getStops(DNGL_IBP, 'BOWENPALLY X ROADS', 'PATNY'),
+    getStops(SECB_SKPL, 'SECUNDERABAD', 'KOTI WOMENS COLLEGE'),
+    getStops(LGRH_KTGD, 'CHADERGHAT', 'DILSHUKNAGAR')
+  ),
   ["1D/299"].concat(
     getStops(KTGD_LGRH, "HAYATHNAGAR", "CHADERGHAT"),
     getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD")
@@ -1055,32 +1291,55 @@ let DetailedRoutesDOWN = [
     getStops(KTGD_LGRH, "LB NAGAR X ROADS", "CHADERGHAT"),
     getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD")
   ),
-  // ["1HD"].concat(SC_KOTI_DN),
-  // ["1J"].concat(SC_AFZ_1_DN),
-  // ["1K"].concat(SC_AFZ_1_DN),
-  // ["1L"].concat(SC_KOTI_DN),
-  // ["1MD"].concat(SC_KOTI_DN),
-  // ["1P"].concat(SC_AFZ_1_DN),
-  // ["1V"].concat(SC_KOTI_DN),
   ["1X"].concat(
     "KACHEGUDA STATION",
     "KACHEGUDA X ROADS",
     getStops(SKPL_SECB, "NARAYANAGUDA", "SECUNDERABAD")
   ),
+  ["1V"].concat(
+    getStops(TailsDOWN, 'NGOs COLONY', 'RED TANK'),
+    getStops(TailsDOWN, 'GANESH TEMPLE (VANASTHALIPURAM)', 'VANASTHALIPURAM'),
+    getStops(KTGD_LGRH, "PANAMA", "CHADERGHAT"),
+    getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD")
+  ),
   ["1Z"].concat(
     getStops(SHMB_KSR, "ARAMGHAR", "CITY BUS STATION"),
     getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD")
+  ),
+  ["1Z/229"].concat(
+    getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'),
+    getStops(DNGL_IBP, 'BOWENPALLY X ROADS', 'PATNY'),
+    getStops(SECB_SKPL, "SECUNDERABAD", "KOTI WOMENS COLLEGE"),
+    getStops(KSR_SHMB, "KOTI MEDICAL COLLEGE", "ARAMGHAR")
   ),
   ["1Z/251"].concat(
     getStops(SHMB_KSR, "SHAMSHABAD", "CITY BUS STATION"),
     getStops(SKPL_SECB, "KOTI WOMENS COLLEGE", "SECUNDERABAD")
   ),
 
+  // 2 SERIES
+  ["2"].concat(
+    getStops(PTCR_GTKS, 'AFZALGUNJ', 'CHADERGHAT X ROADS'),
+    SHD[708],
+    getStops(SHMB_KSR, 'KACHEGUDA STATION', 'SHANKARMUTT'),
+    SHD[1075], SHD[167],
+    getStops(SKPL_SECB, 'RTC X ROADS', 'SECUNDERABAD')
+  ),
+  ["2/25S"].concat(
+    getStops(KPHB_GTKS, 'SUCHITRA', 'ALWAL'),
+    getStops(SRPT_MNBD, 'LOTHKUNTA', 'PATNY'),
+    getStops(SECB_SKPL, 'SECUNDERABAD', 'RTC X ROADS'),
+    SHD[167], SHD[1075],
+    getStops(KSR_SHMB, 'NALLAKUNTA', 'KACHEGUDA STATION'),
+    SHD[708],
+    getStops(GTKS_PTCR, 'CHADERGHAT X ROADS', 'AFZALGUNJ')
+  ),
+
   // 3 SERIES
 
   ["3"].concat(
     getStops(KSR_SHMB, "KUSHAIGUDA", "SP NAGAR"),
-    "MOULA ALI KAMAN",
+    SHD[526],
     getStops(KSR_SHMB, "ZTS X ROADS", "AFZALGUNJ")
   ),
   ["3C"].concat(
@@ -1119,12 +1378,26 @@ let DetailedRoutesDOWN = [
     SHD[780],
     getStops(KSR_SHMB, "RAM THEATER - LALAPET", "AFZALGUNJ")
   ),
+  ["3T"].concat(
+    SHD[993],
+    getStops(KSR_SHMB, 'MANIKESHWAR NAGAR', 'AFZALGUNJ'),
+  ),
 
   // 5 Series
   ["5K"].concat(getStops(MNBD_SRPT, "MEHDIPATNAM", "SECUNDERABAD")),
+  ["5K/16A"].concat(
+    getStops(HCLX_GWRL, "ECIL X ROADS", "NEW BRIDGE"),
+    getStops(IBP_DNGL, "METTUGUDA", "CHILKALGUDA X ROADS"),
+    getStops(SRPT_MNBD, "SECUNDERABAD", "MEHDIPATNAM")
+  ),
   ["5K/92A"].concat(
     getStops(SECB_SKPL, "ARAMGHAR", "RETHIBOWLI"),
     getStops(MNBD_SRPT, "MEHDIPATNAM", "SECUNDERABAD")
+  ),
+  ["5K/229"].concat(
+    getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'),
+    getStops(DNGL_IBP, 'BOWENPALLY X ROADS', 'PATNY'),
+    getStops(SRPT_MNBD, "BATA", "MEHDIPATNAM"),
   ),
 
   // 8 SERIES
@@ -1193,9 +1466,18 @@ let DetailedRoutesDOWN = [
     getStops(DNGL_IBP, "ALUGADDA BHAVI", "METTUGUDA"),
     getStops(GWRL_HCLX, "NEW BRIDGE", "ECIL X ROADS")
   ),
+  ["16H"].concat(
+    getStops(KSR_SHMB, 'ECIL X ROADS', 'ZTS X ROADS'),
+    "TIRUMALA NAGAR", SHD[264], "ANANDH BAGH",
+    getStops(HCLX_GWRL, 'ANANDH BAGH X ROADS', 'NEW BRIDGE'),
+    SHD[622],
+    SHD[23],
+    SHD[878],
+    SHD[898]
+  ),
   ["16A/219"].concat(
     getStops(PTCR_GTKS, "PATANCHERUVU", "KUKATPALLY"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(DNGL_IBP, "BALANAGAR", "SECUNDERABAD"),
     getStops(DNGL_IBP, "ALUGADDA BHAVI", "METTUGUDA"),
     getStops(GWRL_HCLX, "NEW BRIDGE", "ECIL X ROADS")
@@ -1205,8 +1487,14 @@ let DetailedRoutesDOWN = [
   ["17H"].concat(
     getStops(KSR_SHMB, "KUSHAIGUDA", "TARNAKA"),
     getStops(IBP_DNGL, "RAILWAY DEGREE COLLEGE", "ALUGADDA BHAVI"),
-    "SANGEETH",
-    "SECUNDERABAD"
+    SHD[878],
+    SHD[898]
+  ),
+  ["17HN"].concat(
+    getStops(KSR_SHMB, 'KUSHAIGUDA', 'HB COLONY'),
+    getStops(CRPL_LGPL, 'NOMA', 'ALUGADDA BHAVI'),
+    SHD[878],
+    SHD[898]
   ),
   ["17H/29B"].concat(
     getStops(DNGL_IBP, "JEEDIMETLA", "SECUNDERABAD"),
@@ -1215,14 +1503,14 @@ let DetailedRoutesDOWN = [
   ),
   ["17/219"].concat(
     getStops(PTCR_GTKS, "PATANCHERUVU", "KUKATPALLY"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(DNGL_IBP, "BALANAGAR", "SECUNDERABAD"),
     getStops(DNGL_IBP, "ALUGADDA BHAVI", "TARNAKA"),
     getStops(SHMB_KSR, "WHITE HOUSE", "ECIL X ROADS")
   ),
   ["17H/219"].concat(
     getStops(PTCR_GTKS, "PATANCHERUVU", "KUKATPALLY"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(DNGL_IBP, "BALANAGAR", "SECUNDERABAD"),
     getStops(DNGL_IBP, "ALUGADDA BHAVI", "TARNAKA"),
     getStops(SHMB_KSR, "WHITE HOUSE", "ECIL X ROADS")
@@ -1235,6 +1523,17 @@ let DetailedRoutesDOWN = [
     getStops(GWRL_HCLX, "SITAFALMANDI X ROADS", "SECUNDERABAD")
   ),
 
+  // 25 SERIES
+  ["25S"].concat(
+    getStops(KPHB_GTKS, 'SUCHITRA', 'ALWAL'),
+    getStops(SRPT_MNBD, 'LOTHKUNTA', 'SECUNDERABAD')
+  ),
+  ["25S/229"].concat(
+    getStops(MDCL_MHRM, 'MEDCHAL', 'JEEDIMETLA VILLAGE'),
+    getStops(KPHB_GTKS, 'SUCHITRA', 'ALWAL'),
+    getStops(SRPT_MNBD, 'LOTHKUNTA', 'SECUNDERABAD')
+  ),
+
   // 29 SERIES
   ["29B"].concat(getStops(DNGL_IBP, "JEEDIMETLA", "SECUNDERABAD")),
   ["29B/17H"].concat(
@@ -1242,10 +1541,55 @@ let DetailedRoutesDOWN = [
     getStops(IBP_DNGL, "RAILWAY DEGREE COLLEGE", "JEEDIMETLA")
   ),
 
+  // 38 SERIES
+  ["38EX"].concat(
+    getStops(GWRL_HCLX, 'SECUNDERABAD', 'SHENOY'),
+    "ADDAGUTTA", "ADDAGUTTA", "NANDANA NAGAR",
+    getStops(HCLX_GWRL, 'TUKARAM GATE', 'SECUNDERABAD')
+  ),
+
+  ["38X"].concat(
+    getStops(GWRL_HCLX, 'SECUNDERABAD', 'TUKARAM GATE'),
+    "NANDANA NAGAR", "ADDAGUTTA", "ADDAGUTTA",
+    getStops(HCLX_GWRL, 'SHENOY', 'SECUNDERABAD')
+  ),
+  ["38T"].concat(
+    SHD[1027],
+    "NANDANA NAGAR", "ADDAGUTTA", "ADDAGUTTA",
+    getStops(HCLX_GWRL, 'SHENOY', 'SECUNDERABAD')
+  ),
+
+  // 40 SERIES
+  ["40"].concat(
+    SHD[506], SHD[508], SHD[813],
+    getStops(RMNG_DRFM, 'NATIONAL DARBAR', 'BIBLE HOUSE'),
+    getStops(MHRM_MDCL, 'BATA', 'CLOCK TOWER'),
+
+    SHD[898]
+  ),
+
+  // 86 SERIES
+  ["86A"].concat(
+    getStops(SHMB_KSR, 'AFZALGUNJ', 'RAM KOTI X ROADS'),
+    getStops(DRFM_RMNG, 'YMCA', 'RAM NAGAR - E SEVA'),
+    getStops(GWRL_HCLX, 'RAM NAGAR GUNDU', 'SECUNDERABAD')
+  ),
+  ["86C"].concat(
+    getStops(SHMB_KSR, 'CITY BUS STATION', 'RAM KOTI X ROADS'),
+    getStops(DRFM_RMNG, 'YMCA', 'RAM NAGAR - E SEVA'),
+    getStops(GWRL_HCLX, 'RAM NAGAR GUNDU', 'SECUNDERABAD')
+  ),
+  ["86K"].concat(
+    SHD[506],
+    getStops(SHMB_KSR, 'KOTI WOMENS COLLEGE', 'RAM KOTI X ROADS'),
+    getStops(DRFM_RMNG, 'YMCA', 'RAM NAGAR - E SEVA'),
+    getStops(GWRL_HCLX, 'RAM NAGAR GUNDU', 'SECUNDERABAD')
+  ),
+
   // 90 SERIES
   ["90L"].concat(
-    "JBS",
-    "PARADE GROUNDS",
+    SHD[433],
+    SHD[754],
     getStops(DNGL_IBP, "SECUNDERABAD", "LB NAGAR X ROADS")
   ),
   ["90LK"].concat(
@@ -1256,6 +1600,13 @@ let DetailedRoutesDOWN = [
     getStops(LGRH_KTGD, "DILSHUKNAGAR", "LB NAGAR"),
     getStops(IBP_DNGL, "LB NAGAR X ROADS", "ALUGADDA BHAVI"),
     SHD[898]
+  ),
+  ["90L/229"].concat(getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'), getStops(DNGL_IBP, 'BOWENPALLY X ROADS', 'LB NAGAR X ROADS')
+  ),
+  ["90L/251"].concat(
+    getStops(SHMB_KSR, 'SHAMSHABAD', 'BUDVEL'),
+    getStops(SKPL_SECB, "ARAMGHAR", "SAGAR RING ROAD"),
+    getStops(IBP_DNGL, "LB NAGAR X ROADS", "SECUNDERABAD")
   ),
 
   // 92 SERIES
@@ -1268,25 +1619,83 @@ let DetailedRoutesDOWN = [
   // 219 SERIES
   ["219"].concat(
     getStops(PTCR_GTKS, "PATANCHERUVU", "KUKATPALLY"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(DNGL_IBP, "BALANAGAR", "SECUNDERABAD")
+  ),
+  ["219/16A"].concat(
+    getStops(HCLX_GWRL, "ECIL X ROADS", "NEW BRIDGE"),
+    getStops(IBP_DNGL, "METTUGUDA", "BALANAGAR"),
+    SHD[1087],
+    getStops(GTKS_PTCR, "KUKATPALLY GOVT COLLEGE", "PATANCHERUVU")
   ),
   ["219/17"].concat(
     getStops(KSR_SHMB, "ECIL X ROADS", "TARNAKA"),
     getStops(IBP_DNGL, "RAILWAY DEGREE COLLEGE", "BALANAGAR"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(GTKS_PTCR, "KUKATPALLY GOVT COLLEGE", "PATANCHERUVU")
   ),
   ["219/17H"].concat(
     getStops(KSR_SHMB, "ECIL X ROADS", "TARNAKA"),
     getStops(IBP_DNGL, "RAILWAY DEGREE COLLEGE", "BALANAGAR"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(GTKS_PTCR, "KUKATPALLY GOVT COLLEGE", "PATANCHERUVU")
+  ),
+  ["219/229"].concat(getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'), getStops(IBP_DNGL, 'BOWENPALLY X ROADS', 'BALANAGAR'), SHD[1087], getStops(GTKS_PTCR, 'KUKATPALLY GOVT COLLEGE', 'PATANCHERUVU')),
+  ["219/250"].concat(
+    getStops(GWRL_HCLX, 'ECIL X ROADS', 'HCL X ROADS'),
+    getStops(CRPL_LGPL, 'ASHOK NAGAR - NFC', 'SECUNDERABAD'),
+    getStops(IBP_DNGL, 'PATNY', 'BALANAGAR'),
+    SHD[1087],
+    getStops(GTKS_PTCR, 'KUKATPALLY GOVT COLLEGE', 'PATANCHERUVU')
   ),
   ["219/272G"].concat(
     getStops(DNGL_IBP, "GANDIMAISAMMA", "BALANAGAR"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(GTKS_PTCR, "KUKATPALLY GOVT COLLEGE", "PATANCHERUVU")
+  ),
+
+  // 229 SERIES
+  ["229"].concat(getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'), getStops(DNGL_IBP, 'BOWENPALLY X ROADS', 'SECUNDERABAD')),
+  ["229/5K"].concat(
+    getStops(MNBD_SRPT, 'MEHDIPATNAM', 'PATNY CENTER'),
+    getStops(IBP_DNGL, "PARADISE", "BOWENPALLY X ROADS"),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
+  ),
+  ["229/90L"].concat(
+    getStops(IBP_DNGL, "LB NAGAR X ROADS", "BOWENPALLY X ROADS"),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
+  ),
+  ["229/219"].concat(getStops(PTCR_GTKS, 'PATANCHERUVU', 'KUKATPALLY'), SHD[1087], getStops(DNGL_IBP, 'BALANAGAR', 'BOWENPALLY X ROADS'), getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')),
+  ["229/279"].concat(
+    getStops(IBP_DNGL, "IBRAHIMPATNAM", "BOWENPALLY X ROADS"),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
+  ),
+  ["229/290"].concat(
+    getStops(KTGD_LGRH, "HAYATHNAGAR", "BHAGYA LATHA"),
+    getStops(TailsDOWN, 'SHANTHI NAGAR - VANASTHALIPURAM', 'VANASTHALIPURAM'),
+    getStops(KTGD_LGRH, 'PANAMA', 'LB NAGAR X ROADS'),
+    getStops(IBP_DNGL, "KAMINENI HOSPITALS", "BOWENPALLY X ROADS"),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
+  ),
+  ["229/290U"].concat(
+    getStops(KTGD_LGRH, 'HAYATHNAGAR', 'LB NAGAR X ROADS'),
+    getStops(IBP_DNGL, "KAMINENI HOSPITALS", "BOWENPALLY X ROADS"),
+    getStops(MHRM_MDCL, 'BOWENPALLY CHECK POST', 'MEDCHAL')
+  ),
+
+  // 250 SERIES
+  ["250"].concat(
+    getStops(GWRL_HCLX, 'ECIL X ROADS', 'HCL X ROADS'),
+    getStops(CRPL_LGPL, 'ASHOK NAGAR - NFC', 'ALUGADDA BHAVI'),
+    SHD[878], SHD[898],
+  ),
+  ["250/219"].concat(
+    getStops(PTCR_GTKS, 'PATANCHERUVU', 'KUKATPALLY'),
+    SHD[1087],
+    getStops(DNGL_IBP, 'BALANAGAR', 'PATNY'),
+    SHD[898],
+    getStops(LGPL_CRPL, 'ALUGADDA BHAVI', 'ASHOK NAGAR - NFC'),
+    getStops(HCLX_GWRL, 'HCL X ROADS', 'ECIL X ROADS')
   ),
 
   // 251 SERIES
@@ -1304,7 +1713,7 @@ let DetailedRoutesDOWN = [
   ["272G/29B"].concat(getStops(DNGL_IBP, "GANDIMAISAMMA", "SECUNDERABAD")),
   ["272G/219"].concat(
     getStops(PTCR_GTKS, "PATANCHERUVU", "KUKATPALLY"),
-    "PRASHANTH NAGAR",
+    SHD[1087],
     getStops(IBP_DNGL, "BALANAGAR", "GANDIMAISAMMA")
   ),
 
@@ -1320,14 +1729,34 @@ let DetailedRoutesDOWN = [
     SHD[754],
     SHD[448]
   ),
+  ["279/229"].concat(getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'), getStops(DNGL_IBP, 'BOWENPALLY X ROADS', 'IBRAHIMPATNAM')
+  ),
   ["279U"].concat(getStops(DNGL_IBP, "UPPAL RING ROAD", "IBRAHIMPATNAM")),
 
   // 290 SERIES
+  ["290"].concat(
+    getStops(KTGD_LGRH, "HAYATHNAGAR", "BHAGYA LATHA"),
+    getStops(TailsDOWN, 'SHANTHI NAGAR - VANASTHALIPURAM', 'VANASTHALIPURAM'),
+    getStops(KTGD_LGRH, 'PANAMA', 'LB NAGAR X ROADS'),
+    getStops(IBP_DNGL, "KAMINENI HOSPITALS", "SECUNDERABAD"),
+    SHD[754],
+    SHD[448]
+  ),
+  ["290/229"].concat(
+    getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'),
+    getStops(DNGL_IBP, "BOWENPALLY X ROADS", "KAMINENI HOSPITALS"),
+    getStops(LGRH_KTGD, "LB NAGAR X ROADS", "PANAMA"),
+    getStops(TailsUP, 'VANASTHALIPURAM', 'SUBHADRA NAGAR'),
+    SHD[369],
+    getStops(LGRH_KTGD, 'BHAGYA LATHA', 'HAYATHNAGAR')
+  ),
   ["290U"].concat(
     getStops(KTGD_LGRH, "HAYATHNAGAR", "LB NAGAR X ROADS"),
     getStops(IBP_DNGL, "KAMINENI HOSPITALS", "SECUNDERABAD"),
     SHD[754],
     SHD[448]
+  ),
+  ["290U/229"].concat(getStops(MDCL_MHRM, 'MEDCHAL', 'BOWENPALLY CHECK POST'), getStops(DNGL_IBP, 'BOWENPALLY X ROADS', 'KAMINENI HOSPITALS'), getStops(LGRH_KTGD, 'LB NAGAR X ROADS', 'HAYATHNAGAR')
   ),
 
   // 299 SERIES
@@ -1340,6 +1769,11 @@ let DetailedRoutesDOWN = [
     getStops(DNGL_IBP, "UPPAL RING ROAD", "LB NAGAR X ROADS"),
     getStops(SECB_SKPL, "SAGAR RING ROAD", "RETHIBOWLI"),
     "MEHDIPATNAM"
+  ),
+  ["300/251"].concat(
+    getStops(SHMB_KSR, 'SHAMSHABAD', 'BUDVEL'),
+    getStops(SKPL_SECB, "ARAMGHAR", "SAGAR RING ROAD"),
+    getStops(IBP_DNGL, "LB NAGAR X ROADS", "UPPAL RING ROAD")
   ),
   ["300L"].concat(
     "LB NAGAR X ROADS",
@@ -1408,6 +1842,8 @@ function selectOption(selected) {
   if (feature == 3 || feature == 4 || feature == 5) {
     if (input == "input1") {
       input1.value = selected;
+      input2.value = "";
+      outputContent.innerHTML = "";
     } else if (input == "input2") {
       input2.value = selected;
       createRouteListItem(input1.value, input2.value);
@@ -1423,39 +1859,57 @@ function selectOption(selected) {
 }
 
 function showStops(value) {
-  if (pos == 1) {
-    if (value.children[1].id == "downArrowUP") {
-      length = lengthUP;
-    } else if (value.children[1].id == "downArrowDOWN") {
-      length = lengthDOWN;
-    } else {
-      length = length;
-    }
+  value.children[1].classList.toggle("expand");
 
+  if (value.children[1].id == "downArrowUP") {
+    length = lengthUP;
+  } else if (value.children[1].id == "downArrowDOWN") {
+    length = lengthDOWN;
+  } else {
+    length = length;
+  }
+
+  if (value.children[1].classList[1] == 'expand') {
     value.children[1].style.transform = "rotate(180deg)";
     value.parentNode.parentNode.parentNode.style.height = length + "px";
     value.children[0].innerHTML = "Hide Stops";
-    pos = 0;
-
-    let Source = value.parentNode.children[0].innerHTML;
-    let route = value.parentNode.parentNode.children[0].children[0].innerHTML;
-    let isDouble =
-      value.parentNode.parentNode.children[0].children[0].classList[0];
-    let doubleValue = 0;
-
-    if (isDouble == "doubleRoute") {
-      doubleValue =
-        route +
-        "/" +
-        value.parentNode.parentNode.children[0].children[1].innerHTML;
-    } else {
-    }
-  } else {
-    pos = 1;
+  } else if (value.children[1].classList[1] == undefined) {
     value.children[1].style.transform = "rotate(0deg)";
     value.parentNode.parentNode.parentNode.style.height = "110px";
     value.children[0].innerHTML = "View Stops";
   }
+  // if (pos == 1) {
+
+  //   value.children[1].style.transform = "rotate(180deg)";
+  //   value.parentNode.parentNode.parentNode.style.height = length + "px";
+  //   value.children[0].innerHTML = "Hide Stops";
+  //   pos = 0;
+
+
+
+  //   let Source = value.parentNode.children[0].innerHTML;
+  //   let route = value.parentNode.parentNode.children[0].children[0].innerHTML;
+  //   let isDouble =
+  //     value.parentNode.parentNode.children[0].children[0].classList[0];
+  //   let doubleValue = 0;
+
+  //   if (isDouble == "doubleRoute") {
+  //     doubleValue =
+  //       route +
+  //       "/" +
+  //       value.parentNode.parentNode.children[0].children[1].innerHTML;
+  //   } else {
+  //   }
+  // } else {
+  //   pos = 1;
+  //   value.children[1].style.transform = "rotate(0deg)";
+  //   value.parentNode.parentNode.parentNode.style.height = "110px";
+  //   value.children[0].innerHTML = "View Stops";
+  // }
+}
+
+function showStopsAction() {
+
 }
 
 function createRouteListItem(routeNoI, DestinationI) {
@@ -1507,7 +1961,8 @@ function createRouteListItem(routeNoI, DestinationI) {
       routeNoI == "92A" ||
       routeNoI == "95/3K" ||
       routeNoI == "92A/5K" ||
-      routeNoI == "92A/49M"
+      routeNoI == "92A/49M" ||
+      routeNoI == "1Z/229"
     ) {
       routeStartI = "ARAMGHAR";
     } else if (
@@ -1691,7 +2146,7 @@ function createRouteListItem(routeNoI, DestinationI) {
       routeStartI = "SUCHITRA";
     } else if (routeNoI == "49MT/250") {
       routeStartI = "TALLAGADDA";
-    } else if (routeNoI == "203U") {
+    } else if (routeNoI == "203U" || routeNoI == "300/251") {
       routeStartI = "UPPAL X ROADS";
     } else if (routeNoI == "18/10KJ") {
       routeStartI = "UPPAL DEPOT";
@@ -2002,7 +2457,7 @@ function createRouteListItem(routeNoI, DestinationI) {
       routeEndI = "KONDAPUR";
     } else if (routeNoI == "203AK" || routeNoI == "218/277K") {
       routeEndI = "KONGARAKALAN";
-    } else if (routeNoI == "40" || routeNoI == "115" || routeNoI == "127K") {
+    } else if (routeNoI == "40" || routeNoI == "115" || routeNoI == "127K" || routeNoI == "86K") {
       routeEndI = "KOTI";
     } else if (routeNoI == "299") {
       routeEndI = "KOTI W.COLLEGE";
@@ -2128,7 +2583,7 @@ function createRouteListItem(routeNoI, DestinationI) {
       routeNoI == "242RG/15H"
     ) {
       routeEndI = "RG COLONY";
-    } else if (routeNoI == "3K/252" || routeNoI == "300/251") {
+    } else if (routeNoI == "3K/252") {
       routeEndI = "RGI AIRPORT";
     } else if (routeNoI == "5R" || routeNoI == "5/5R") {
       routeEndI = "RISALA BAZAR";
@@ -2159,7 +2614,8 @@ function createRouteListItem(routeNoI, DestinationI) {
       routeNoI == "1Z/251" ||
       routeNoI == "7Z/251" ||
       routeNoI == "90L/251" ||
-      routeNoI == "188/251"
+      routeNoI == "188/251" ||
+      routeNoI == "300/251"
     ) {
       routeEndI = "SHAMSHABAD";
     } else if (routeNoI == "19S/505" || routeNoI == "505") {
@@ -2314,17 +2770,7 @@ function createRouteListItem(routeNoI, DestinationI) {
         routeNoI = routeNoI;
       }
 
-      routeListItem.appendChild(header);
-      routeListItem.appendChild(content);
-      header.appendChild(left);
-      header.append(right);
-      right.appendChild(routeStart);
-      right.appendChild(routeVia);
-      right.appendChild(routeEnd);
-      right.appendChild(downArrowContainer);
-      downArrowContainer.appendChild(viewStops);
-      downArrowContainer.appendChild(downArrow);
-      outputContent.appendChild(routeListItem);
+      // Append code was there
 
       if (i == 0) {
         downArrow.setAttribute("id", "downArrowUP");
@@ -2364,8 +2810,36 @@ function createRouteListItem(routeNoI, DestinationI) {
             content.appendChild(h4C);
           }
         }
+
+        routeListItem.appendChild(header);
+        routeListItem.appendChild(content);
+        header.appendChild(left);
+        header.append(right);
+        right.appendChild(routeStart);
+        right.appendChild(routeVia);
+        right.appendChild(routeEnd);
+        right.appendChild(downArrowContainer);
+        downArrowContainer.appendChild(viewStops);
+        downArrowContainer.appendChild(downArrow);
+        outputContent.appendChild(routeListItem);
       }
       if (i == 1) {
+        if (routeNoI == "38EX" || routeNoI == "38X") {
+
+        } else {
+          routeListItem.appendChild(header);
+          routeListItem.appendChild(content);
+          header.appendChild(left);
+          header.append(right);
+          right.appendChild(routeStart);
+          right.appendChild(routeVia);
+          right.appendChild(routeEnd);
+          right.appendChild(downArrowContainer);
+          downArrowContainer.appendChild(viewStops);
+          downArrowContainer.appendChild(downArrow);
+          outputContent.appendChild(routeListItem);
+        }
+
         downArrow.setAttribute("id", "downArrowDOWN");
         if (routeNoI.includes("/")) {
           routeNo.textContent = routeNoDN;
@@ -2404,6 +2878,8 @@ function createRouteListItem(routeNoI, DestinationI) {
             content.appendChild(h4C);
           }
         }
+
+
       }
 
       i++;
@@ -2548,10 +3024,10 @@ function createRouteListItem(routeNoI, DestinationI) {
 
       if (i == 0) {
         cell1.textContent = "City Ordinary";
-        cell2.textContent = "10/-";
+        cell2.textContent = routeFG + "/-";
       } else if (i == 1) {
         cell1.textContent = "Metro Express";
-        cell2.textContent = "15/-";
+        cell2.textContent = routeRG + "/-";
       } else {
         alert("Error Occured");
       }
@@ -2836,25 +3312,5 @@ function closeHelpBox() {
 function getStops(a, s, d) {
   return a.slice(a.indexOf(s), a.indexOf(d) + 1);
 }
-
-let stopstrail = [];
-
-DetailedRoutesUP.forEach((element) => {
-  // console.log(element)
-  element.forEach((element2) => {
-    if (element2 == "JEEDIMETLA") {
-      // console.log(DetailedRoutesUP.indexOf(element));
-      // console.log(element.indexOf(element2));
-
-      // console.log(DetailedRoutesUP[DetailedRoutesUP.indexOf(element)][0])
-
-      stopstrail.push(DetailedRoutesUP[DetailedRoutesUP.indexOf(element)][0]);
-    }
-  });
-});
-
-console.log(stopstrail);
-const set = new Set(stopstrail);
-console.log(set);
 
 navigateOption1.click();
